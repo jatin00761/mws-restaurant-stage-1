@@ -9,11 +9,7 @@
   
   
   @media screen and (min-width: 1000px) {
-    #restaurants-list, .filter-options {
-      width: 100%;
-      margin-left: auto;
-      margin-right:auto;
-    }
+
     h2#restaurant-name {
       order: -2;
       font-size: 36px;
@@ -54,13 +50,13 @@
       text-decoration: none;
       width: 100%;
       width: calc(50% - 30px);
-      margin: 0;
+      margin: 0 0 10px 0;
       padding: 0;
       line-height: 2em;
     }
     p#restaurant-cuisine {
       width: calc(50% - 30px);
-      margin: 0 0 0 20px;
+      margin: 0 0 40px 20px;
       max-width: 600px;
       order: 3;
       line-height:2em;
