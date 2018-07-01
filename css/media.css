@@ -9,6 +9,7 @@
 /* Desktop */  
   @media screen and (min-width: 1000px) {
 
+    /* Added order attribute to reorder flexbox contents */
     #map-container{
       height: 500px;
       width: 100%;
