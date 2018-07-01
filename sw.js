@@ -1,10 +1,13 @@
+// Cache Name
 const staticCacheName = 'restaurant-stage-1';
 
+// Default files to always cache
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(staticCacheName)
       .then(cache => {
         return cache.addAll([
+          /* Add every page to cache */
           '/index.html',
           '/css/styles.css',
           '/js/dbhelper.js',
@@ -30,8 +33,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
+  event.respondWith(caches.match(event.request).then(response => {
       return response || fetch(event.request).then(fetchResponse => {
         return caches.open(staticCacheName).then(cache => {
           cache.put(event.request, fetchResponse.clone());
@@ -40,8 +42,8 @@ self.addEventListener('fetch', event => {
       });
     }).catch(error => {
       return new Response('No Internet', {
-        status: 404,
-        statusText: "No internet"
+        statusText: "No internet",
+        status: 404
       });
     })
   );
