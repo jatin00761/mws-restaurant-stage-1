@@ -1,7 +1,8 @@
-var CacheName = 'restaurant-review-v1';
+let CacheName = 'restaurant-review-1';
 const urlsToCache = [
-  'index.html',
-  'restaurant.html',
+  '/index.html',
+  '/register-sw.js',
+  '/restaurant.html',
   '/js',
   '/img',
   '/data',
@@ -21,13 +22,9 @@ self.addEventListener('activate',function(event){
 });
 
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.open(CacheName).then(function(cache){
-      return cache.match(event.request).then(function(response){
-          return response || fetch(event.request).then(function(response){
-              cache.put(event.request,response.clone());
-          });
-      });
-  })
-); 
-});
+    event.respondWith(
+      fetch(event.request).catch(function() {
+        return caches.match(event.request);
+      })
+    );
+  });
