@@ -1,3 +1,10 @@
+/*  Service Worker caching code understood unsing tutorial: https://www.youtube.com/watch?v=BfL3pprhnms
+    Additional Help from: https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
+                          https://blog.hasura.io/strategies-for-service-worker-caching-d66f3c828433
+                          StackOverflow posts to get around bugs
+
+*/
+
 // Cache Name
 const staticCacheName = 'restaurant-stage-1';
 
