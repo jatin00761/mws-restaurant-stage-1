@@ -56,6 +56,13 @@
       padding-top: 20px;
       padding-bottom: 0;
     }
+    p#restaurant-cuisine {
+      width: calc(50% - 30px);
+      margin: 0 0 40px 20px;
+      max-width: 600px;
+      order: 3;
+      line-height:2em;
+    }
     p#restaurant-address {
       order: 4;
       font-size: 20px;
@@ -65,13 +72,6 @@
       margin: 0 0 10px 0;
       padding: 0;
       line-height: 2em;
-    }
-    p#restaurant-cuisine {
-      width: calc(50% - 30px);
-      margin: 0 0 40px 20px;
-      max-width: 600px;
-      order: 3;
-      line-height:2em;
     }
     #reviews-list li p:last-of-type {
       font-size: 18px;
