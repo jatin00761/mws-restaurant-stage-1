@@ -39,9 +39,6 @@ self.addEventListener('fetch', event => {
         });
       });
     }).catch(error => {
-      if (event.request.url.includes('.jpg')) {
-        return caches.match('/img/fixed/offline_img1.png');
-      }
       return new Response('No Internet', {
         status: 404,
         statusText: "No internet"

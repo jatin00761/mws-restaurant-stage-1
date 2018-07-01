@@ -10,6 +10,17 @@
   
   @media screen and (min-width: 1000px) {
 
+    #map-container{
+      height: 500px;
+      width: 100%;
+    }
+    #map {
+      height: 500px;
+      width: 100%;
+      background-color: #ccc;
+      margin: 0 auto;
+    
+    }
     h2#restaurant-name {
       order: -2;
       font-size: 36px;
