@@ -1,7 +1,9 @@
+
 /**
  * Common database helper functions.
  */
-class DBHelper {
+
+ class DBHelper {
 
   /**
    * Database URL.
@@ -12,25 +14,61 @@ class DBHelper {
     return `http://localhost:${port}/restaurants`;
   }
 
+  static openDatabase() {
+    if(!navigator.serviceWorker){
+      return Promise.resolve();
+    }
+
+    return idb.open('restaurants', 1, function (upgradeDb) {
+      var store = upgradeDb.createObjectStore('restaurants', {
+        keyPath: 'id'
+      });
+    });
+  }
+
+  static populateDatabase(restaurants){
+    return DBHelper.openDatabase().then(function(db){
+      if(!db) return;
+
+      var tx = db.transaction('restaurants', 'readwrite');
+      var store = tx.objectStore('restaurants');
+      restaurants.forEach(function (restaurant) {
+          store.put(restaurant);
+      });
+      return tx.complete;
+    });
+  }
+
+  static getIdBRestaurants(){
+    return DBHelper.openDatabase().then(function(db){
+      if(!db) return;
+
+      var tx = db.transaction('restaurants');
+      var store = tx.objectStore('restaurants');
+      return store.getAll();
+    });
+  }
+
+
   /**
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-    fetch(DBHelper.DATABASE_URL, {credentials: 'same-origin'})
-      .then(response => {
-        if (response.ok) {
-          return response;
-        }
-        throw new Error('Network response !OK');
-      })
-      .then(response => response.json())
-      .then(restaurants => {
-        console.log('restaurants', restaurants);
-        callback(null, restaurants);
-      })
-      .catch(error => {
-        console.log('Fetch operation Failed: ', error.message);
-      })
+    return DBHelper.getIdBRestaurants().then((restaurants) => {
+      if (restaurants.length) {
+        return restaurants;
+      } else {
+        return fetch(DBHelper.DATABASE_URL)
+          .then(function(response){
+            return response.json();
+        }).then(restaurants => {
+            DBHelper.populateDatabase(restaurants);
+            return restaurants;
+        });
+      }
+    }).then(restaurants => {
+      callback(null, restaurants);
+    });
   }
 
   /**

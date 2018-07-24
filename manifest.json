@@ -1,0 +1,16 @@
+{
+    "name": "mws-restaurant-stage-2",
+    "short_name": "Restaurants",
+    "description": "Udacity nanodegree",
+    "lang": "en-US",
+    "background_color": "#fdfdfd",
+    "theme_color": "#fdfdfd",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "natural",
+    "icons": [{
+      "src": "img/icon-1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }]
+  }
