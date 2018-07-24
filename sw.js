@@ -1,6 +1,7 @@
 var filesToCache = [
   '/css/styles.css',
-  '/index.html'
+  '/index.html',
+  'manifest.json'
 ];
 
 var staticCacheName = 'static-cache-v1';
