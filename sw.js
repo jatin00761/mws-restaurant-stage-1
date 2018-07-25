@@ -1,7 +1,10 @@
 var filesToCache = [
   '/css/styles.css',
   '/index.html',
-  'manifest.json'
+  'manifest.json',
+  '/js/dbhelper.js',
+  '/js/main.js',
+  'sw.js'
 ];
 
 var staticCacheName = 'static-cache-v1';
