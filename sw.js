@@ -5,6 +5,7 @@ var filesToCache = [
   'manifest.json',
   '/js/dbhelper.js',
   '/js/main.js',
+  '/js/register-sw.js',
   'sw.js'
 ];
 
