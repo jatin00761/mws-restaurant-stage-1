@@ -6,7 +6,8 @@ var filesToCache = [
   '/js/dbhelper.js',
   '/js/main.js',
   '/js/register-sw.js',
-  'sw.js'
+  'sw.js',
+  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css'
 ];
 
 var staticCacheName = 'static-cache-v1';
