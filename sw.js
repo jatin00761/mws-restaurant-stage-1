@@ -1,5 +1,6 @@
 var filesToCache = [
-  '/css/styles.min.css',
+  '/css/style.min.css',
+  '/css/media.min.css',
   '/index.html',
   'manifest.json',
   '/js/dbhelper.js',
